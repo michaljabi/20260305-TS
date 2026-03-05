@@ -26,6 +26,8 @@ interface MyFun {
   (a: number, b: number): number;
 }
 
-// TODO: wyjaśnij czemu nie było błędu tutaj bez parametrów
+// TODO: wyjaśnij czemu nie było błędu tutaj bez podania parametrów - FOLLOW UP (zawieranie się typów oraz structural typing)
+const myFunctionExpression3: MyFun = () => 0;
+
 const myFunctionExpression: MyFun = (a: number, b: number) => 0;
 const myFunctionExpression2: MyFunction = (a: number, b: number) => 0;
