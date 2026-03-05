@@ -28,22 +28,41 @@
  * */
 
 // Przed rozpoczęciem zadania usuń komentarz poniżej (@ts-nocheck)
-// @ts-nocheck
 
 // Tutaj dopisz implementację moveBy2 na podstawie wywołań poniżej
-function moveBy2() {
-    console.log(33)
+function moveBy2(start: number, finish: number | string, direction: 'up' | 'down') {
+  // console.log(33);
+
+  const end = Number(finish);
+  // console.log(end);
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
+  if (Number.isNaN(end)) {
+    return;
+  }
+  // console.log(end);
+
+  if (direction === "up") {
+    for (let x = start; x <= end; x += 2) {
+      console.log(x);
+    }
+  } else {
+    for (let x = end; x >= start; x -= 2) {
+      console.log(x);
+    }
+  }
 }
 
+const x = 10 + NaN;
+
 // to powinny być prawidłowe wywołania:
-moveBy2(10, 20, 'up');
-moveBy2(10, '20', 'down');
+moveBy2(10, 20, "up");
+moveBy2(10, "20", "down");
 
 // nieprawidłowe wywołania (nie powinny się pokazać dane na konsoli):
-moveBy2(10, 'aqweoiuqwieu', 'down');
-moveBy2(10, NaN, 'down');
+moveBy2(10, "aqweoiuqwieu", "down");
+moveBy2(10, NaN, "down");
 
-// powinno podkreślić - [błąd Typescript]
+// powinno podkreślić - [błąd Typescript]*
 // moveBy2(10, NaN, 'diagonal');
 
 export {};
