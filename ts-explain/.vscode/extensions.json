@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ritwickdey.LiveServer",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vscode-icons-team.vscode-icons",
+    "achil.vscode-javascript-repl",
+    "WallabyJs.quokka-vscode",
+    "biomejs.biome"
+  ]
+}
