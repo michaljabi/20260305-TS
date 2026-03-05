@@ -22,9 +22,11 @@
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    // "exactOptionalPropertyTypes": true,
 
     // Style Options
+    // "strictNullChecks": false,
+    // "noImplicitAny": false, // flaga przydatna przy migracji.
     // "noImplicitReturns": true,
     // "noImplicitOverride": true,
     // "noUnusedLocals": true,
@@ -33,13 +35,14 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true,
+    "strict": true, // jeśli nie migrujemy tylko zaczynamy od początku projekt - to to stict chcemy mieć zapięte since day1
+    // "alwaysStrict": true, todo: check in DOCs
     "jsx": "react-jsx",
     // "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
 
     // to-test:
     // "listFiles": true

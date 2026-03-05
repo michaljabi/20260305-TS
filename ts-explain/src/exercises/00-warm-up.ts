@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Komentarz powyżej wskazuje kompilerowi typescript — że ma nie analizować tego pliku...
 /**
  * Zadanie 0:
@@ -17,33 +16,43 @@
  * // @ts-ignore
  * */
 
-const MyHello = 'Hello';
-console.log(MyHello, 'World')
+let MyHello = "Hello";
+console.log(MyHello, "World");
 
-MyHello = 'Serious';
-const help = "HelpMe out!"
+MyHello = "Serious";
+const help = "HelpMe out!";
 
-let do = true;
-const LARGE-number = 2048
+let DO = true;
+const LARGE_NUMBER$_2 = 2048;
 
-tutaj miał być komentarz, że addNumbers musi zwracać number !
-function addNumbers(a , b): number {
-    return a + b
+// tutaj miał być komentarz, że addNumbers musi zwracać number !
+
+// Explicit - jawnie
+// Implicit - niejawnie
+function addNumbers(a: number, b = 0): number {
+//   if (typeof a === "string") {
+//     return a;
+//   }
+  return a + b; //+ Number(c);
 }
 
-let result: string;
+let result: number;
+
+// Tutaj TS nas pilnuje jeśli strictNullChecks włączone
+// const x = result + 20;
+
 result = addNumbers(10, 20);
 
-console.log('Result is:', result);
+console.log("Result is:", result);
 
-console.log(helloStranger())
+const helloStranger = (): string => "Hello Stranger !";
 
-const helloStranger = (): string => 'Hello Stranger !';
+console.log(helloStranger());
 
-function randomNumber(): string {
-    return Math.random() * 100;
+function randomNumber(): number {
+  return Math.random() * 100;
 }
 
-console.log('You reached the end! - BRAVO')
+console.log("You reached the end! - BRAVO");
 
 export {};
