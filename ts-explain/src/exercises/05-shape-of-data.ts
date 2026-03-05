@@ -11,24 +11,43 @@
  * - utwórz odpowiednie obiekty i przekaż do `giveFullName` tak aby potwierdzić poprawność działania kodu
  * */
 
-function joiner (strTuple: any): any  {
-    return strTuple[0] + ' ' + strTuple[1];
+import type { TwoStringElementsArray } from "./helper.types";
+
+function joiner(strTuple: TwoStringElementsArray): string {
+  return strTuple[0] + " " + strTuple[1];
 }
 
-function giveFullName(myUser: any): any {
-    const fullName: any = myUser.name + ' ' + myUser.lastName;
-    let prefix: any;
-    let suffix: any;
-    if(myUser.sex === 'female') {
-        prefix = 'Pani';
-    } else if(myUser.sex === 'male') {
-        prefix = 'Pan';
-    }
-    if(myUser.vipStatus) {
-        suffix = ' - the VIP'
-    }
-    return prefix + ' ' + fullName + suffix;
+// niewłaściwe wywolania
+/*
+joiner(['2','2', 2])
+joiner(['2','2', '3'])
+joiner(['2'])
+joiner([])
+joiner()
+*/
+// Właściwe wywołanie
+joiner(["name", "lastName"]);
+
+interface User { // może być type User = {...};
+  name: string;
+  lastName: string;
+  sex: 'female' | 'male';
+  vipStatus?: boolean;
+}
+
+function giveFullName(myUser: User): string {
+  const fullName = myUser.name + " " + myUser.lastName;
+  let prefix = ''; // tak (wnioskowanie 100%)
+  let suffix: string = ''; // albo tak explicite :string;
+  if (myUser.sex === "female") {
+    prefix = "Pani";
+  } else if (myUser.sex === "male") {
+    prefix = "Pan";
+  }
+  if (myUser.vipStatus) {
+    suffix = " - the VIP";
+  }
+  return prefix + " " + fullName + suffix;
 }
 
 export {};
-
