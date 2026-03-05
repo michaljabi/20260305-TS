@@ -15,6 +15,7 @@
     "e1": "nodemon src/exercises/01-any-should-work.ts",
     "e2": "nodemon src/exercises/02-train-basics.ts",
     "e3": "nodemon src/exercises/03-functions.ts",
+    "e3:tsx": "tsx watch src/exercises/03-functions.ts",
     "e4": "nodemon src/exercises/04-callbacks.ts",
     "e5": "nodemon src/exercises/05-shape-of-data.ts",
     "e6": "nodemon src/exercises/06-better-joiner.ts",
@@ -28,6 +29,7 @@
     "esbuild": "^0.27.3",
     "nodemon": "3.1.14",
     "ts-node": "10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "5.9.3"
   }
 }

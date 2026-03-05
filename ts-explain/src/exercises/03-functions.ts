@@ -35,24 +35,25 @@
  * // @ts-ignore
  */
 
-const JOB_TITLE = 'Senior Specialist'
-const SOCIAL_PACKET = 'Grand premium Sport Card'
+const JOB_TITLE = "Senior Specialist";
+const SOCIAL_PACKET = "Grand premium Sport Card";
 
-
-function userOnboarding(name: string, yearOfExperience?:number, jobTitle = JOB_TITLE, socialPacket = SOCIAL_PACKET) {
-    console.log(`
+function userOnboarding(
+  name: string,
+  yearOfExperience?: number,
+  jobTitle = JOB_TITLE,
+  socialPacket = SOCIAL_PACKET,
+) {
+  console.log(`
     Witaj ${name},
-    mając ${yearOfExperience ?? 5} lat doświadczenia.
+    mając ${yearOfExperience ?? 5} lat doświadczenia
     Dostałeś stanowisko: ${jobTitle}
 
     Przysługuje Ci: ${socialPacket}
-`)
+`);
 }
 
-
-userOnboarding('Marek')
-userOnboarding('Jacek', 20, 'Manager', 'Medical pack')
-
-
+userOnboarding("Marek");
+userOnboarding("Jacek", 20, "Manager", "Medical pack");
 
 export {};
