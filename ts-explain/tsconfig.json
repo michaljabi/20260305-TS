@@ -8,6 +8,7 @@
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
+    "removeComments": true, // piszemy Front end nie chcemy sie chwalić komentarzami
     "target": "esnext",
     "types": [],
     // For nodejs:
