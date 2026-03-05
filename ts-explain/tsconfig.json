@@ -39,9 +39,10 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true
+    "skipLibCheck": true,
 
     // to-test:
     // "listFiles": true
+    // "checkJs": true // dla całości projektu zamiast // @ts-check per plik
   }
 }
