@@ -13,8 +13,8 @@
 
 import type { TwoStringElementsArray } from "./helper.types";
 
-function joiner(strTuple: TwoStringElementsArray): string {
-  return strTuple[0] + " " + strTuple[1];
+function joiner(elments: TwoStringElementsArray): string {
+  return elments.join(' ');
 }
 
 // niewłaściwe wywolania
@@ -37,17 +37,14 @@ interface User { // może być type User = {...};
 
 function giveFullName(myUser: User): string {
   const fullName = myUser.name + " " + myUser.lastName;
-  let prefix = ''; // tak (wnioskowanie 100%)
+  const prefix = myUser.sex === "female" ? 'Pani' : 'Pan'; // tak (wnioskowanie 100%)
   let suffix: string = ''; // albo tak explicite :string;
-  if (myUser.sex === "female") {
-    prefix = "Pani";
-  } else if (myUser.sex === "male") {
-    prefix = "Pan";
-  }
   if (myUser.vipStatus) {
     suffix = " - the VIP";
   }
-  return prefix + " " + fullName + suffix;
+  return joiner([joiner([prefix, fullName]), suffix]).trim();
 }
+
+console.log(giveFullName({ lastName: 'Kowalsky', name: 'John', sex: 'male' }))
 
 export {};
