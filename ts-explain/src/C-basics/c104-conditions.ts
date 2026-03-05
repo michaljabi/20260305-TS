@@ -69,15 +69,19 @@ if(0) {
 if(-0) {
     console.log('I am working !')
 }
+//@ts-expect-error
 if(0n) {
     console.log('I am working !')
 }
+//@ts-expect-error
 if('') {
     console.log('I am working !')
 }
+//@ts-expect-error
 if(null) {
     console.log('I am working !')
 }
+//@ts-expect-error
 if(undefined) {
     console.log('I am working !')
 }
@@ -126,3 +130,8 @@ function complexType(isDateOrRegexp: Date | RegExp): void {
 // Potrzebne żeby naprawić błąd z kolizją nazw zmiennych:
 // Same zmiany w pliku tsconfig--old.json nie wystarczają!
 export {};
+
+
+// Więcej w DOC:
+// https://dorey.github.io/JavaScript-Equality-Table/
+// https://developer.mozilla.org/en-US/docs/Glossary/Falsy
