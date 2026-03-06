@@ -11,7 +11,27 @@
  */
 
 // Odkomentuj w momencie rozpoczęcia pracy nad zadaniem:
-/*
+
+class BuyNowItem {
+    constructor(public name: string) {}
+}
+
+class AuctionItem {
+    constructor(public name: string) {}
+}
+
+class Basket<ITEM> {
+
+    private myItems: ITEM[] = [];
+
+    addItem(item: ITEM) {
+        this.myItems.push(item);
+    }
+
+    getAllItems(): ITEM[] {
+        return this.myItems;
+    }
+}
 
 const myBuyNowBasket = new Basket<BuyNowItem>();
 const myAuctionBasket = new Basket<AuctionItem>();
@@ -33,6 +53,6 @@ myAuctionBasket.getAllItems().forEach((item: AuctionItem) => {
 // myBuyNowBasket.getAllItems().push(new BuyNowItem('Troll'))
 
 
- */
+
 
 export {};
