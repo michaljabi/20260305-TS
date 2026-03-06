@@ -9,6 +9,8 @@
     "build": "tsc",
     "start": "tsx watch src/main.ts",
     "prod": "node dist/main.js",
+    "prod:sm": "npm run prod -- --enable-source-maps",
+    "prod:sm-working": "node --enable-source-maps dist/main.js",
     "trick:init": "npx tsc --init"
   },
   "keywords": [],

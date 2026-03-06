@@ -6,4 +6,5 @@ const message: Message = {
   // sss: '?'
 };
 
-console.log(message);
+// Celowy błąd żeby zobaczyć source mapy
+console.log(messagez);

@@ -18,7 +18,7 @@
     // Other Outputsls
     // omawiany był rimraf ("prebuild": "rimraf ./dist") - biblioteka żeby zawsze używać `./dist`
     // rimraf - potrzebny żeby było "platform agnostic".
-    //"sourceMap": true,
+    "sourceMap": true,
     //"declaration": true,
     //"declarationMap": true,
 
