@@ -10,7 +10,7 @@ carsController.get("", (c: Context) => {
 })
 
 carsController.get("/:uid", (c: Context) => {
-    const uid = c.req.param("uid");
+    const uid = c.req.param("uid") ?? '';
     // Zadanie #1:
     // napraw poniższy problem TS2345
     const car = carsService.getByUid(uid)
