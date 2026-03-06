@@ -56,10 +56,3 @@ export const carsService = {
         console.log(newData.year)
     }
 }
-
-// W JS:
-const myCar = { name: 'Volvo' }
-
-console.log(myCar.name);
-//
-console.log(myCar['name']);

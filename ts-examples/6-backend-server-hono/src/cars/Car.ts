@@ -6,7 +6,7 @@ export interface Car {
     brand: string;
     model: string;
     year: number;
-    fuelType: string;
+    fuelType: 'electric' | 'gasoline' | 'diesel';
     color?: string;
 }
 
