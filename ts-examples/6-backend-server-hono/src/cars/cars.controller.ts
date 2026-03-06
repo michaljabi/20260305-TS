@@ -2,7 +2,7 @@
 
 import { type Context, Hono } from "hono";
 import { carsService } from "./cars.service.js";
-import type { Car, NewCar } from "./Car.js";
+import type { NewCar } from "./Car.js";
 
 export const carsController = new Hono()
 
@@ -37,9 +37,9 @@ carsController.get("/:uid", (c: Context) => {
 
     const car = carsService.getByUid(uid)
 
-    if (!car) {
-        return c.json({message: `Car ${uid} not found`}, 404)
-    }
+    // if (!car) {
+    //     return c.json({message: `Car ${uid} not found`}, 404)
+    // }
 
     return c.json(car)
 })

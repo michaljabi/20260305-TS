@@ -1,3 +1,4 @@
+import { ServiceError } from "../shared/ServiceError.js";
 import type { Car, NewCar, PatchCar } from "./Car.js";
 
 const inMemoryCars: Car[] = [
@@ -28,7 +29,11 @@ export const carsService = {
         // Dodaj tutaj obsługę błędów i specjalną klasę `ServiceError` w osobnym pliku
         // Jeśli poniższy find nie znajdzie elementu - rzuć błędem z obsługą statusu
         // odkomentuj w app.ts kod: app.onError i zaimplementuj poprawną obsługę błędu
-        return inMemoryCars.find(car => car.uid === uid);
+        const car = inMemoryCars.find(car => car.uid === uid);
+        if(!car) {
+            throw new ServiceError(`Car ${uid} not found`, 404)
+        }
+        return car;
     },
     // Zadanie #2 (cd.) - zamień any na odpowiedni typ
     create(carData: NewCar) {
