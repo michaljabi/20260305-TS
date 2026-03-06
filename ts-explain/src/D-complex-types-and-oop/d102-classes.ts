@@ -24,20 +24,20 @@ const obj = new Simple();
 // Pola w klasach domyślnie są publiczne:
 // podczas ich deklarowania - albo nadajemy im wartość początkową, albo określamy jako opcjonalne
 class SuperCat {
-    name = '';
-    age?: number;
+  name = "";
+  age?: number;
 }
 
 const myFirstCat = new SuperCat();
-myFirstCat.name = 'Mruczek';
+myFirstCat.name = "Mruczek";
 myFirstCat.age = 2;
 
 // Pole w klasie może być publiczne, prywatne albo chronione:
 class Example {
-    private notAccessibleOutsideAClass = true;
-    protected accessibleForInheritanceOnly = true;
-    public visibleAndAccessibleForAnyone = 'access to all !';
-    visibleAndAccessibleForAnyoneByDefault = 'access to all !';
+  private notAccessibleOutsideAClass = true;
+  protected accessibleForInheritanceOnly = true;
+  public visibleAndAccessibleForAnyone = "access to all !";
+  visibleAndAccessibleForAnyoneByDefault = "access to all !";
 }
 
 // Możemy również określić pola jako tylko do odczytu:
@@ -45,14 +45,14 @@ class Example {
 // w tym układzie w momencie konstruowania instancji - mamy możliwość nadania nazwy filmu,
 // jednak później nie możemy jej zmienić!
 class Movie {
-    readonly name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
+  readonly name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
 }
 
-const myMovie = new Movie('The Witcher');
-console.log(myMovie.name)
+const myMovie = new Movie("The Witcher");
+console.log(myMovie.name);
 // Operacja poniżej nie jest dozwolona:
 // myMovie.name = 'The Gathering';
 
@@ -63,38 +63,59 @@ console.log(myMovie.name)
 // Movie [===] OtherMovie
 
 class OtherMovie {
-    // skrócona forma zapisu tego co mamy powyżej w Movie !!!
-    constructor(public readonly name: string) {}
+  // skrócona forma zapisu tego co mamy powyżej w Movie !!!
+  constructor(public readonly name: string) {}
 }
 
-const myOtherMovie = new OtherMovie('Friends');
-console.log(myOtherMovie.name)
+const myOtherMovie = new OtherMovie("Friends");
+console.log(myOtherMovie.name);
 // myOtherMovie.name = 'That 70s show';
-
 
 // W klasie, podobnie jak w typie i interface - możemy mieć pola opcjonalne:
 class MountainTroll {
-    name?: string;
+  name?: string;
 }
 
 const barney = new MountainTroll();
 const ricky = new MountainTroll();
-ricky.name = 'Ricky'
-
+ricky.name = "Ricky";
 
 // Klasa może posiadać metody, jednak podobnie jak w JavaScript - nie można ich "przeładowywać"
 // nie ma również możliwości przeładowania konstruktorów
 
-class Person {
-    name = 'Unknow';
+const currency: "EUR" | "PLN" | "USD" = 'EUR';
 
+class Person {
+  name = "Unknow";
+
+  /*
     sayYourName() {
         console.log(this.name);
     }
     // operacja niedozwolona! Nie można mieć 2 tak samo nazwanych metod:
-    /*
     sayYourName(prefix: string) {
         console.log(prefix, this.name);
     }
+
+    sayYourName(prefix: boolean) {
+        console.log(prefix ? 'Szanowny' : '', this.name);
+    }
     */
+
+  //  Union type FTW!
+  sayYourName(prefix?: string | boolean) {
+    if (typeof prefix === "boolean") {
+      console.log(prefix ? "Szanowny" : "", this.name);
+    } else if (prefix) {
+      console.log(prefix, this.name);
+    } else {
+      console.log(this.name);
+    }
+  }
 }
+
+const myPerson = new Person();
+myPerson.name = "Michał";
+
+myPerson.sayYourName(); // Michał
+myPerson.sayYourName("Pan"); // Pan Michał
