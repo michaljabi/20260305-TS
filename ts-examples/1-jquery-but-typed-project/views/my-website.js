@@ -6,6 +6,8 @@ export const myWebsite = $(`
 </div>
 `)
 
+//$.getJSON
+
 
 const interactiveButton = $(`<button>Click me !</button>`)
 
