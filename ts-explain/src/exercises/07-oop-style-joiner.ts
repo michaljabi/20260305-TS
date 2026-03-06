@@ -16,4 +16,46 @@
      console.log(joiner.joinWords('what', 'is', 'it')  === 'what is it');
  * */
 
+// tylko w klasie!
+// let #test = 2;
+
+class Joiner {
+
+    // Faktycznie private pole - NAWET w runtime JS
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_elements
+    // #sign = ''
+
+    private sign = '';
+
+    constructor(sign: string) {
+        this.sign = sign;
+        // this.sign = sign;
+    }
+
+    changeSign(newSign: string) {
+        this.sign = newSign;
+    }
+
+    joinWords(...words: string[]) {
+        return words.join(this.sign);
+    }
+
+    // showSign() {
+    //     return this.#sign;
+    // }
+
+}
+
+const myJoiner = new Joiner('-');
+
+// myJoiner.sign = 'TROLL';
+console.log(myJoiner.joinWords('this', 'is'));
+myJoiner.changeSign(' ');
+console.log(myJoiner.joinWords('what', 'is', 'it'));
+
+
+console.log(myJoiner);
+// console.log(myJoiner.showSign());
+
+
 export {};
