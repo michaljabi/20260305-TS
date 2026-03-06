@@ -5,13 +5,20 @@
  * Jednak nie mam podpowiadania typów - znów poprzez zastosowanie :any
  *
  * Napisz odpowiednie typy:
- * - dla argumentów funkcji
+ * - dla parametrów funkcji
  * - dla zwracanej funkcji i określ oddzielnie jej typ i nazwij
  *
  * */
 
-function joiner(joinString: any): any  {
-    return (...strings: any): any => {
+type JoinerFn = (...strings: string[]) => string;
+
+// interface IJoinerFn {
+interface JoinFn {
+    (...strings: string[]): string;
+}
+
+function joiner(joinString: string): JoinerFn  {
+    return (...strings: string[]): string => {
         return strings.join(joinString);
     };
 }
@@ -24,6 +31,12 @@ console.log(hyphenJoiner('this', 'is', 'sample'))
 console.log(spaceJoiner('this', 'is', 'other', 'sample'))
 console.log(snakeJoiner('how', 'does', 'snake', 'case', 'looks', 'like'))
 
+
+console.log(hyphenJoiner(...['hello', 'world']))
+console.log(spaceJoiner('hello', 'world'))
+
+// Funkcja zwraca funkcję
+console.log(joiner('@_@')('hello', 'world', 'of', 'wonders'))
 
 export {};
 
