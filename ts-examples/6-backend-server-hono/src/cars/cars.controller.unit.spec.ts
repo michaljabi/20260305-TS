@@ -24,6 +24,7 @@ describe('Cars API Unit Tests with mocks', () => {
 
     const cars = await res.json()
     expect(cars).toEqual(mockedCars)
+    // expect(cars.length).toEqual(2)
     expect(carsService.getAll).toHaveBeenCalledWith(undefined)
   })
 

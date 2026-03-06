@@ -2,6 +2,7 @@
 
 import { type Context, Hono } from "hono";
 import { carsService } from "./cars.service.js";
+import type { Car, NewCar } from "./Car.js";
 
 export const carsController = new Hono()
 
@@ -45,8 +46,10 @@ carsController.get("/:uid", (c: Context) => {
 
 carsController.post('', async (c: Context) => {
     // Zadanie #2 (c.d.) - popraw <any> na odpowiedni, spodziewany typ.
-    const body = await c.req.json<any>();
+    const body = await c.req.json<NewCar>();
     const newCar = carsService.create(body);
+
+    // carsService.updateYearAndColor('312d647', { color: 'red' })
     return c.json(newCar, 201);
 })
 
