@@ -1,4 +1,4 @@
-import type { Message } from "./Message.js";
+import type { Message } from "./features/Message.js";
 
 const message: Message = {
   value: "Goodbye World",
