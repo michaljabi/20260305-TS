@@ -25,11 +25,20 @@ class Joiner {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_elements
     // #sign = ''
 
+    /*
     private sign = '';
 
-    constructor(sign: string) {
-        this.sign = sign;
-        // this.sign = sign;
+    // lukier składniowy dostępny w TS.
+   
+    */
+
+    // lukier składniowy dostępny w TS.
+    // używanie modyfikatorów: private/protected/public - żeby mieć pole na instacji i odrazu przypisać je w konstruktorze (bez potrzeby pisania this.pole = pole!)
+    // https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html#classes
+    constructor(private sign: string, protected hello: number, isOk: boolean, public name = 'TEST') {
+        if(isOk) {
+            console.log('Alll ok!')
+        }
     }
 
     changeSign(newSign: string) {
@@ -46,7 +55,7 @@ class Joiner {
 
 }
 
-const myJoiner = new Joiner('-');
+const myJoiner = new Joiner('-', 237, true);
 
 // myJoiner.sign = 'TROLL';
 console.log(myJoiner.joinWords('this', 'is'));
@@ -55,6 +64,7 @@ console.log(myJoiner.joinWords('what', 'is', 'it'));
 
 
 console.log(myJoiner);
+myJoiner.name
 // console.log(myJoiner.showSign());
 
 
